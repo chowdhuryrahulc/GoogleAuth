@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:startgoogle/GoogleAuthJM/Home.dart';
+import 'package:startgoogle/GoogleAuthJM/google_sign_in.dart';
 import 'package:startgoogle/loginWithoutProvider/liginx.dart';
 import 'package:startgoogle/login_page.dart';
 
@@ -18,14 +20,17 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(
-            create: (context) => X(),
-            child: LoginPage(),
-          )
+            create: (context) => GoogleSignInProvider(),
+          ),
+          // ChangeNotifierProvider(
+          //   create: (context) => X(),
+          //   child: LoginPage(),
+          // )
         ],
         child: MaterialApp(
           title: 'flutter',
           theme: ThemeData(primarySwatch: Colors.purple),
-          home: Logonx(),
+          home: Home(),
         ));
   }
 }
